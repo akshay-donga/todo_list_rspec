@@ -24,8 +24,6 @@ RSpec.describe TodoListItemsController, type: :request do
     let (:path) { todo_list_todo_list_item_path(id: todo_list_item.id, todo_list_id: todo_list.id) }
     
     before do
-      sign_in(FactoryGirl.create(:user))
-      # controller.stub(sign_in(FactoryGirl.create(:user)))
       get path
     end
 
