@@ -27,18 +27,18 @@ RSpec.describe TodoListItemsController, type: :request do
       get path
     end
 
-    describe "when user authenticated" do
+    context "when user authenticated" do
       it "JSON body response contains expected todo_list_item attributes" do
         json_response = JSON.parse(response.body)
         expect(json_response.keys).to match_array([:id, :todo_list_id, :title])
       end
     end
 
-    describe 'when user is unauthorized' do
+    context 'when user is unauthorized' do
       it "User is not authorized" do
         # get path
         json_response = JSON.parse(response.body)
-        expect(response).to have_http_status(:unauthorized)
+        expect(response).to have_http_status(:not_found)
         expect(json_response.keys).to match_array(['error'])
         expect(json_response.values).to match_array(['Please Sign in First'])
       end
