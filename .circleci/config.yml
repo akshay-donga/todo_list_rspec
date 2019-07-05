@@ -12,4 +12,9 @@ workflows:
   Welcome:
     # Run the welcome/run job in its own container
     jobs:
-      - welcome/run
+      build:
+        branches:
+          only:
+            - staging
+          ignore:
+            - master
