@@ -19,7 +19,7 @@ class ApplicationController < ActionController::API
   end
 
   def authenticate_user!
-    head :unauthorized unless signed_in?
+    render json: {error: 'Please Sign in First'}, status: :unauthorized unless signed_in?
   end
 
   def signed_in?
