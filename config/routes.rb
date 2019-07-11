@@ -8,4 +8,5 @@ Rails.application.routes.draw do
       resources :todo_list_items, path: 'todo-items'
     end
   end
+  root to: 'home#index'
 end
